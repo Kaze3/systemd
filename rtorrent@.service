@@ -1,0 +1,12 @@
+[Unit]
+Description=rTorrent Service
+After=network.target
+
+[Service]
+Type=forking
+User=%i
+ExecStart=/usr/bin/screen -dmS rtorrent.%i rtorrent
+ExecStop=killall -w -s 2 rtorrent
+
+[Install]
+WantedBy=multi-user.target
