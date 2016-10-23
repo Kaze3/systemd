@@ -1,0 +1,12 @@
+[Unit]
+Description=SqueezeLite Player Service
+After=network.target logitechmediaserver.service
+
+[Service]
+Type=simple
+User=htpc
+PAMName=system-local-login
+ExecStart=/usr/bin/squeezelite -o "pulse" -m 00:00:00:00:00:50 -n "Henry HTPC"
+
+[Install]
+WantedBy=multi-user.target
