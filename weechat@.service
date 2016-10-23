@@ -1,0 +1,11 @@
+[Unit]
+Description=Weechat Service
+After=network.target
+
+[Service]
+Type=forking
+User=%i
+ExecStart=/usr/bin/screen -dmS weechat -c %h/.weechat/screen_weechat
+
+[Install]
+WantedBy=multi-user.target
