@@ -1,0 +1,15 @@
+[Unit]
+Description=Bitwarden
+Requires=docker.service
+After=docker.service
+
+[Service]
+#Type=forking
+#Restart=always
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/home/htpc/bitwarden/bitwarden.sh start
+ExecStop=/home/htpc/bitwarden/bitwarden.sh stop
+
+[Install]
+WantedBy=default.target
